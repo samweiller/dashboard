@@ -1,8 +1,10 @@
 import React from 'react'
+import MapView from './MapView'
 
 export const Map = (props) => (
   <div style={{ margin: '0 auto' }} >
     <h2>Map {props.count}</h2>
+    <MapView />
     <button className='btn btn-default' onClick={props.increment}>
       Increment
     </button>

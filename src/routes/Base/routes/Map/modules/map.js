@@ -54,7 +54,7 @@ const ACTION_HANDLERS = {
   [FILTER_SUCCESS] : (state, action) => ({
     ...state,
     isFetching: false,
-    count: state.count * 2,
+    incidents: action.payload.data,
   }),
   [FILTER_ERROR] : (state, action) => ({
     ...state,
@@ -69,6 +69,7 @@ const ACTION_HANDLERS = {
 const initialState = {
   count: 0,
   isFetching: false,
+  incidents: [],
   error: null,
 }
 
@@ -89,7 +90,7 @@ function filterEffect({ payload: { method, endpoint, params } }) {
     .then(json => {
       return {
         type: FILTER_SUCCESS,
-        payload: { data: json, sent: params },
+        payload: { data: json.data, sent: params },
       }
     })
     .then(null, error => {

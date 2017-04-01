@@ -1,5 +1,5 @@
 import { connect } from 'react-redux'
-import { toggleMenu } from '../modules/incidentList'
+import { filter } from '../../../modules/map'
 
 import IncidentList from '../components/IncidentList'
 
@@ -8,12 +8,13 @@ import IncidentList from '../components/IncidentList'
     implementing our wrapper around increment; the component doesn't care   */
 
 const mapDispatchToProps = {
-  toggleMenu,
+  filter,
 }
 
 const mapStateToProps = (state) => {
   return ({
-    isOpen : state.incident.isOpen
+    incidents: state.map.incidents,
+    isOpen : state.incidentList.isOpen
   })
 }
 

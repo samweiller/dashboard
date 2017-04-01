@@ -14,7 +14,9 @@ const mapDispatchToProps = {
 
 const mapStateToProps = (state) => {
   return ({
-    count : state.map.count
+    count : state.map.count,
+    isFetching : state.map.isFetching,
+    incidents : state.map.incidents,
   })
 }
 

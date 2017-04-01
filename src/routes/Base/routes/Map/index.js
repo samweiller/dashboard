@@ -15,17 +15,29 @@ export default (store) => ({
       /*  Add the reducer to the store on key 'counter'  */
       injectReducer(store, { key: 'map', reducer })
 
-      // Setup reducers that we'll need for Base
-      const incidentReducer = require('./containers/Incident/modules/incident').default
-      injectReducer(store, { key: 'incident', reducer: incidentReducer })
-
-      const incidentListReducer = require('./containers/IncidentList/modules/incidentList').default
-      injectReducer(store, { key: 'incidentList', reducer: incidentListReducer })
-
       /*  Return getComponent   */
       cb(null, Map)
 
     /* Webpack named bundle   */
     }, 'map')
-  }
+  },
+
+  getChildRoutes (location, cb) {
+    require.ensure([], (require) => {
+
+      // Setup reducers that we'll need for Base
+      const Incident = require('./routes/Incident').default(store)
+      const incidentReducer = require('./containers/Incident/modules/incident').default
+      injectReducer(store, { key: 'incident', reducer: incidentReducer })
+
+      const IncidentList = require('./routes/IncidentList').default(store)
+      const incidentListReducer = require('./containers/IncidentList/modules/incidentList').default
+      injectReducer(store, { key: 'incidentList', reducer: incidentListReducer })
+
+      cb(null, [
+        Incident,
+        IncidentList,
+      ])
+    })
+  },
 })

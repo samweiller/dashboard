@@ -10,10 +10,11 @@ export default (store) => ({
       /*  Webpack - use require callback to define
           dependencies for bundling   */
       const Base = require('./components/BaseView').default
-      //const reducer = require('./modules/counter').default
 
+      // Setup reducers that we'll need for Base
       const menuReducer = require('./containers/Menu/modules/menu').default
       injectReducer(store, { key: 'menu', reducer: menuReducer })
+
       const chatReducer = require('./containers/Chat/modules/chat').default
       injectReducer(store, { key: 'chat', reducer: chatReducer })
 

@@ -1,21 +1,20 @@
 import { connect } from 'react-redux'
-import { increment, filter } from '../modules/map'
+import { toggleMenu } from '../modules/incidentList'
 
-import Map from '../components/Map'
+import IncidentList from '../components/IncidentList'
 
 /*  Object of action creators (can also be function that returns object).
     Keys will be passed as props to presentational components. Here we are
     implementing our wrapper around increment; the component doesn't care   */
 
 const mapDispatchToProps = {
-  increment : () => increment(1),
-  filter,
+  toggleMenu,
 }
 
 const mapStateToProps = (state) => {
   return ({
-    count : state.map.count
+    isOpen : state.incident.isOpen
   })
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(Map)
+export default connect(mapStateToProps, mapDispatchToProps)(IncidentList)

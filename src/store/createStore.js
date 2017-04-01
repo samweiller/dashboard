@@ -1,6 +1,5 @@
 import { applyMiddleware, compose, createStore } from 'redux'
-import thunk from 'redux-thunk'
-import { install } from 'redux-loop';
+import { install, combineRe } from 'redux-loop';
 import logger from 'redux-logger'
 import { browserHistory } from 'react-router'
 import makeRootReducer from './reducers'
@@ -10,12 +9,12 @@ export default (initialState = {}) => {
   // ======================================================
   // Middleware Configuration
   // ======================================================
-  const middleware = [logger, thunk]
+  const middleware = [logger]
 
   // ======================================================
   // Store Enhancers
   // ======================================================
-  const enhancers = [install()]
+  const enhancers = []
 
   let composeEnhancers = compose
 
@@ -33,6 +32,7 @@ export default (initialState = {}) => {
     makeRootReducer(),
     initialState,
     composeEnhancers(
+      install(),
       applyMiddleware(...middleware),
       ...enhancers
     )

@@ -1,20 +1,17 @@
 import React from 'react'
 
-import Chat from '../../Chat'
-
-export const Menu = (props) => (
+export const IncidentList = (props) => (
   <div style={{ margin: '0 auto' }} >
-    <h2>Menu</h2>
+    <h2>Incident List</h2>
     <button className='btn btn-default' onClick={props.toggleMenu}>
       Toggle menu {props.isOpen ? 'closed' : 'open'}
     </button>
-    <Chat />
   </div>
 )
 
-Menu.propTypes = {
+IncidentList.propTypes = {
   isOpen     : React.PropTypes.bool.isRequired,
   toggleMenu : React.PropTypes.func.isRequired
 }
 
-export default Menu
+export default IncidentList

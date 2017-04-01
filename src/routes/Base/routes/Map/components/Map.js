@@ -7,15 +7,15 @@ export const Map = (props) => (
       Increment
     </button>
     {' '}
-    <button className='btn btn-default' onClick={props.doubleAsync}>
-      Double (Async)
+    <button className='btn btn-default' onClick={props.filter}>
+      Fetch data
     </button>
   </div>
 )
 
 Map.propTypes = {
-  count     : React.PropTypes.number.isRequired,
-  doubleAsync : React.PropTypes.func.isRequired,
+  count       : React.PropTypes.number.isRequired,
+  filter      : React.PropTypes.func.isRequired,
   increment   : React.PropTypes.func.isRequired
 }
 

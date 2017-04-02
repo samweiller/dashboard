@@ -24,7 +24,7 @@ class Map extends React.Component {
         View List of Incidents
       </Link>
 
-      <MapView />
+       <MapView incidents={incidents} foo="hello" />
 
       {this.props.children}
     </div>

@@ -1,3 +1,58 @@
 .mapboxgl-canvas {
    position: relative!important;
 }
+
+.markerStyle1 {
+  width: 30;
+  height: 30;
+  borderRadius: '50%';
+  backgroundColor: '#DD4841';
+  display: 'flex';
+  justifyContent: 'center';
+  alignItems: 'center';
+  border: '2px solid #C9C9C9';
+};
+
+.markerStyle2 {
+  width: 30;
+  height: 30;
+  borderRadius: '50%';
+  backgroundColor: '#F3908B';
+  display: 'flex';
+  justifyContent: 'center';
+  alignItems: 'center';
+  border: '2px solid #C9C9C9';
+};
+
+.markerStyle3 {
+  width: 30;
+  height: 30;
+  borderRadius: '50%';
+  backgroundColor: '#EED5AF';
+  display: 'flex';
+  justifyContent: 'center';
+  alignItems: 'center';
+  border: '2px solid #C9C9C9';
+};
+
+.markerStyle4 {
+  width: 30;
+  height: 30;
+  borderRadius: '50%';
+  backgroundColor: '#93C9F3';
+  display: 'flex';
+  justifyContent: 'center';
+  alignItems: 'center';
+  border: '2px solid #C9C9C9';
+};
+
+.markerStyle5 {
+  width: 30;
+  height: 30;
+  borderRadius: '50%';
+  backgroundColor: '#2793E6';
+  display: 'flex';
+  justifyContent: 'center';
+  alignItems: 'center';
+  border: '2px solid #C9C9C9';
+};

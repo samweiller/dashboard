@@ -161,7 +161,6 @@ export default class MapView extends React.Component {
           height: "100vh",
           width: "100%"
         }}>
-        {this.state.incident ? this.state.incident.description:"NO INCIDENT"}
           <ScaleControl/>
           <ZoomControl/>
 

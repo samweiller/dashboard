@@ -1,26 +1,36 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
-import { Map, TileLayer } from 'react-leaflet'
-const position = [37.781811, -122.403693]
+import ReactMapboxGl, { Layer, ScaleControl, ZoomControl, Feature, GeoJSONLayer, Marker } from "react-mapbox-gl";
+// const position = [37.78, -122.40]
 
 export default class MapView extends React.Component {
   constructor(props) {
     super(props)
+    this.state = {
+      popup: null,
+      center: [ -77.01239, 38.91275 ]
+    };
   }
 
   render() {
     return (
-      <div>
-        <Map
-          style={{height: "100vh"}}
-          center={position}
-          zoom={15}>
-          <TileLayer
-            // url="https://api.mapbox.com/styles/v1/raheemdashboard/cj0ysvisw000h2ro2heuaqgj9/tiles/256/{z}/{x}/{y}?access_token=pk.eyJ1IjoicmFoZWVtZGFzaGJvYXJkIiwiYSI6ImNqMHlzbHduZjAyZGUzM3NkeTEwYWpocTAifQ.JydAc5Gah9lzgAcrwLt5qQ"
-            url="https://api.mapbox.com/styles/v1/raheemdashboard/cj0ywoyd2000f2smpapq8d595/tiles/256/{z}/{x}/{y}?access_token=pk.eyJ1IjoicmFoZWVtZGFzaGJvYXJkIiwiYSI6ImNqMHlzbHduZjAyZGUzM3NkeTEwYWpocTAifQ.JydAc5Gah9lzgAcrwLt5qQ"
-            attribution='Raheem.ai' />
-        </Map>
-      </div>
+      <ReactMapboxGl
+        style="mapbox://styles/mapbox/streets-v8"
+        accessToken="pk.eyJ1IjoicmFoZWVtZGFzaGJvYXJkIiwiYSI6ImNqMHlzbHduZjAyZGUzM3NkeTEwYWpocTAifQ.JydAc5Gah9lzgAcrwLt5qQ"
+        center={this.state.center}
+        containerStyle={{
+          height: "100vh",
+          width:"100%"
+        }}>
+          <ScaleControl/>
+          <ZoomControl/>
+          <Layer
+            type="symbol"
+            id="marker"
+            layout={{ "icon-image": "marker-15" }}>
+            <Feature coordinates={[37.78, -122.40]} />
+          </Layer>
+      </ReactMapboxGl>
     )
   }
 }

@@ -147,6 +147,9 @@ export default class MapView extends React.Component {
      const { incidents, popupShowLabel } = this.props
      const incident = this.props.state
      console.log(incidents)
+
+       var incidentHex = ["#DD4841", "#F3908B", "#EED5AF", "#93C9F3", "#2793E6"]
+
     return (
       // const { incidents, incident, skip, end, popupShowLabel, fitBounds } = this.state;
       <div>
@@ -188,9 +191,11 @@ export default class MapView extends React.Component {
 
                   </span>
                   <div onClick={this._popupChange.bind(this, !popupShowLabel)}>
-                  {this.state.incident.address}
+                  <p style={{backgroundColor: incidentHex[this.state.incident.rating-1], color: incidentHex[this.state.incident.rating-1]}}>Rating is {this.state.incident.rating}</p>
+                  <h1 className="popupAddress">{this.state.incident.address}</h1>
 
-                    {this.state.incident.description}
+                    <h4 className="popupDescription">{this.state.incident.description}</h4>
+                    <p className="popupAddress">Citizen felt {this.state.incident.reactions_list} in response to a {this.state.incident.tags_list}.</p>
                   </div>
                 </div>
               </Popup>

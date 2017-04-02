@@ -14,7 +14,6 @@ const mapDispatchToProps = {
 const mapStateToProps = (state) => {
   return ({
     incidents: state.map.incidents,
-    isOpen : state.incidentList.isOpen
   })
 }
 

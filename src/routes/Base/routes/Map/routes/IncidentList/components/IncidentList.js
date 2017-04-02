@@ -5,23 +5,30 @@ class IncidentList extends React.Component {
   componentDidMount() {
   }
 
+  renderIncident(incident) {
+    return <p key={incident.slug}>{incident.reactions_list}</p>
+  }
+
   render() {
+    const incidents = this.props.incidents.map(this.renderIncident)
+
     return <div style={{ margin: '0 auto' }} >
       <h2>Incident List</h2>
-      <button className='btn btn-default' onClick={this.props.toggleMenu}>
-        Toggle menu {this.props.isOpen ? 'closed' : 'open'}
-      </button>
 
       <Link to='/base/map' activeClassName='route--active'>
         [close]
       </Link>
+
+      <div className='list'>
+        {incidents}
+      </div>
     </div>
   }
 }
 
 IncidentList.propTypes = {
-  isOpen : React.PropTypes.bool.isRequired,
-  filter : React.PropTypes.func.isRequired
+  filter    : React.PropTypes.func.isRequired,
+  incidents : React.PropTypes.array.isRequired,
 }
 
 export default IncidentList

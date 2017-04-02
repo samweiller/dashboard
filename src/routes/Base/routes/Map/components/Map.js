@@ -1,6 +1,7 @@
 import React from 'react'
 
 import { Link } from 'react-router'
+import MapView from './MapView'
 
 class Map extends React.Component {
   componentDidMount() {
@@ -22,6 +23,8 @@ class Map extends React.Component {
       <Link to='/base/map/incidents' activeClassName='route--active'>
         View List of Incidents
       </Link>
+
+      <MapView />
 
       {this.props.children}
     </div>

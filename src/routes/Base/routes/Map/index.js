@@ -27,11 +27,11 @@ export default (store) => ({
 
       // Setup reducers that we'll need for Base
       const Incident = require('./routes/Incident').default(store)
-      const incidentReducer = require('./containers/Incident/modules/incident').default
+      const incidentReducer = require('./routes/Incident/modules/incident').default
       injectReducer(store, { key: 'incident', reducer: incidentReducer })
 
       const IncidentList = require('./routes/IncidentList').default(store)
-      const incidentListReducer = require('./containers/IncidentList/modules/incidentList').default
+      const incidentListReducer = require('./routes/IncidentList/modules/incidentList').default
       injectReducer(store, { key: 'incidentList', reducer: incidentListReducer })
 
       cb(null, [

@@ -20,5 +20,24 @@ export default (store) => ({
 
     /* Webpack named bundle   */
     }, 'map')
-  }
+  },
+
+  getChildRoutes (location, cb) {
+    require.ensure([], (require) => {
+
+      // Setup reducers that we'll need for Base
+      const Incident = require('./routes/Incident').default(store)
+      const incidentReducer = require('./containers/Incident/modules/incident').default
+      injectReducer(store, { key: 'incident', reducer: incidentReducer })
+
+      const IncidentList = require('./routes/IncidentList').default(store)
+      const incidentListReducer = require('./containers/IncidentList/modules/incidentList').default
+      injectReducer(store, { key: 'incidentList', reducer: incidentListReducer })
+
+      cb(null, [
+        Incident,
+        IncidentList,
+      ])
+    })
+  },
 })
